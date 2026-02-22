@@ -594,7 +594,7 @@ ChangePhoto_Exit:
     ' Fin
 ChangePhoto_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, mconFeuilleType, mconFeuilleNom, INSTRUCTIONEVENEMENT, "ChangePhoto", vbNullString, Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONEVENEMENT, "ChangePhoto", vbNullString, Err
     ' Je Continue
     Resume ChangePhoto_Exit
     ' Fin
@@ -641,7 +641,7 @@ Form_Load_Exit:
     ' Fin
 Form_Load_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, mconFeuilleType, mconFeuilleNom, INSTRUCTIONEVENEMENT, "Form_Load", vbNullString, Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONEVENEMENT, "Form_Load", vbNullString, Err
     ' Je Continue
     Resume Form_Load_Exit
     ' Fin
@@ -672,7 +672,7 @@ cmdBouton_Click_Exit:
     ' Fin
 cmdBouton_Click_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, mconFeuilleType, mconFeuilleNom, INSTRUCTIONEVENEMENT, "cmdBouton_Click", CStr(Index), Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONEVENEMENT, "cmdBouton_Click", CStr(Index), Err
     ' Je Continue
     Resume cmdBouton_Click_Exit
     ' Fin
@@ -706,7 +706,7 @@ mebChampValeur_Change_Exit:
     ' Fin
 mebChampValeur_Change_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, mconFeuilleType, mconFeuilleNom, INSTRUCTIONEVENEMENT, "mebChampValeur_Change", CStr(Index), Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONEVENEMENT, "mebChampValeur_Change", CStr(Index), Err
     ' Je Continue
     Resume mebChampValeur_Change_Exit
     ' Fin
@@ -736,7 +736,7 @@ mebChampValeur_GotFocus_Exit:
     ' Fin
 mebChampValeur_GotFocus_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, mconFeuilleType, mconFeuilleNom, INSTRUCTIONEVENEMENT, "mebChampValeur_GotFocus", CStr(Index), Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONEVENEMENT, "mebChampValeur_GotFocus", CStr(Index), Err
     ' Je Continue
     Resume mebChampValeur_GotFocus_Exit
     ' Fin
