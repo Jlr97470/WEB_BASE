@@ -1,11 +1,11 @@
 DRWebBase = 0, 0, 0, 0, C, 44, 58, 589, 641, C
 DEWebBase = 242, 319, 1682, 1207, C, -411, 121, 1367, 1478, C
-modWebBase = -439, 365, 1512, 1253, Z
+modWebBase = -439, 365, 1512, 1253, 
 mdiWebBase = 110, 145, 2061, 1033, , 88, 116, 2039, 1004, C
 frmTableLiensSite = 242, 319, 1837, 1012, , -357, 370, 1594, 1258, C
 frmTableLiensCategorie = 132, 174, 1661, 1004, , 0, 0, 1440, 888, C
 frmTableConnexion = 242, 319, 1771, 1149, , 330, 435, 1770, 1323, C
 frmTableClient = 109, 139, 1638, 969, , 308, 406, 1748, 1294, C
-frmParametre = 0, 0, 0, 0, C, 286, 377, 1726, 1265, C
-frmExportationOutlook = 0, 0, 0, 0, C, 264, 348, 1704, 1236, C
+frmParametre = 220, 290, 1802, 1186, , 286, 377, 1726, 1265, C
+frmExportationOutlook = 176, 232, 1758, 1128, , 264, 348, 1704, 1236, C
 frmTableAccueil = 132, 174, 1661, 1004, , 110, 145, 1550, 1033, C

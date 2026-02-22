@@ -141,8 +141,7 @@ Option Explicit                                                                 
 '******************************************************************************
 '***    Constante Qui Defini Les Libelles De La feuille En Erreur                   ***
 '******************************************************************************
-Private Const mconFeuilleType = FEUILLEMDIFORM                                                   ' Le type de feuille
-Private Const mconFeuilleNom = "mdiWebBase"                                               ' Le nom de la Feuille
+Private Const LOGFEUILLENOM = "mdiWebBase"                                               ' Le nom de la Feuille
 
 '******************************************************************************
 '***    Evenement                                                                                       ***
@@ -173,7 +172,7 @@ MDIForm_Load_Exit:
     ' Fin
 MDIForm_Load_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, mconFeuilleType, mconFeuilleNom, INSTRUCTIONEVENEMENT, "MDIForm_Load", vbNullString, Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEMDIFORM, LOGFEUILLENOM, INSTRUCTIONEVENEMENT, "MDIForm_Load", vbNullString, Err
     ' Je Continue
     Resume MDIForm_Load_Exit
     ' Fin
@@ -208,7 +207,7 @@ MDIForm_Unload_Exit:
     ' Fin
 MDIForm_Unload_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, mconFeuilleType, mconFeuilleNom, INSTRUCTIONEVENEMENT, "MDIForm_Unload", vbNullString, Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEMDIFORM, LOGFEUILLENOM, INSTRUCTIONEVENEMENT, "MDIForm_Unload", vbNullString, Err
     ' Je Continue
     Resume MDIForm_Unload_Exit
     ' Fin
@@ -269,7 +268,7 @@ mnuFichier_Click_Exit:
     ' Fin
 mnuFichier_Click_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, mconFeuilleType, mconFeuilleNom, INSTRUCTIONEVENEMENT, "mnuFichier_Click", CStr(Index), Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEMDIFORM, LOGFEUILLENOM, INSTRUCTIONEVENEMENT, "mnuFichier_Click", CStr(Index), Err
     ' Je Continue
     Resume mnuFichier_Click_Exit
     ' Fin
@@ -314,7 +313,7 @@ mnuInformation_Click_Exit:
     ' Fin
 mnuInformation_Click_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, mconFeuilleType, mconFeuilleNom, INSTRUCTIONEVENEMENT, "mnuInformation_Click", CStr(Index), Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEMDIFORM, LOGFEUILLENOM, INSTRUCTIONEVENEMENT, "mnuInformation_Click", CStr(Index), Err
     ' Je Continue
     Resume mnuInformation_Click_Exit
     ' Fin
@@ -346,7 +345,7 @@ mnuParametre_Click_Exit:
     ' Fin
 mnuParametre_Click_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, mconFeuilleType, mconFeuilleNom, INSTRUCTIONEVENEMENT, "mnuParametre_Click", CStr(Index), Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEMDIFORM, LOGFEUILLENOM, INSTRUCTIONEVENEMENT, "mnuParametre_Click", CStr(Index), Err
     ' Je Continue
     Resume mnuParametre_Click_Exit
     ' Fin

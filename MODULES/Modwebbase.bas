@@ -27,8 +27,7 @@ Option Explicit                                                                 
 '******************************************************************************
 '***    Constante Qui Defini Les Libelles De La feuille En Erreur                   ***
 '******************************************************************************
-Private Const mconFeuilleType = FEUILLEMODULE                                                 ' Le type de feuille
-Private Const mconFeuilleNom = "modWebBase"                                             ' Le nom de la Feuille
+Private Const LOGFEUILLENOM = "modWebBase"                                             ' Le nom de la Feuille
 
 '******************************************************************************
 '***    Declaration De Constante Public                                                       ***
@@ -168,7 +167,7 @@ Main_Exit:
     ' Fin
 Main_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONPROCEDURE, "Main", vbNullString, Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "Main", vbNullString, Err
     ' Je Continue
     Resume Main_Exit
     ' Fin
@@ -249,7 +248,7 @@ InitialiseControl_Exit:
 InitialiseControl_Erreur:
     ' Je l'ecrit dans le journal
 'FIXIT: 'Name)' n'est pas une propriété de l'objet 'Control' générique dans Visual Basic .NET. Pour accéder à 'Name)', déclarez 'ctlControl' en utilisant son type effectif au lieu de 'Control'     FixIT90210ae-R1460-RCFE85
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONPROCEDURE, "InitialiseControl", CStr(ctlControl.Name), Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "InitialiseControl", CStr(ctlControl.Name), Err
     ' Je Continue
     Resume InitialiseControl_Exit
     ' Fin
@@ -359,7 +358,7 @@ DesactiveControlData_Exit:
 DesactiveControlData_Erreur:
     ' Je l'ecrit dans le journal
 'FIXIT: 'Name)' n'est pas une propriété de l'objet 'Control' générique dans Visual Basic .NET. Pour accéder à 'Name)', déclarez 'ctlControl' en utilisant son type effectif au lieu de 'Control'     FixIT90210ae-R1460-RCFE85
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONPROCEDURE, "DesactiveControlData", CStr(ctlControl.Name), Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "DesactiveControlData", CStr(ctlControl.Name), Err
     ' Je Continue
     Resume DesactiveControlData_Exit
     ' Fin
@@ -469,7 +468,7 @@ ReactiveControlData_Exit:
 ReactiveControlData_Erreur:
     ' Je l'ecrit dans le journal
 'FIXIT: 'Name)' n'est pas une propriété de l'objet 'Control' générique dans Visual Basic .NET. Pour accéder à 'Name)', déclarez 'ctlControl' en utilisant son type effectif au lieu de 'Control'     FixIT90210ae-R1460-RCFE85
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONPROCEDURE, "ReactiveControlData", CStr(ctlControl.Name), Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "ReactiveControlData", CStr(ctlControl.Name), Err
     ' Je Continue
     Resume ReactiveControlData_Exit
     ' Fin
@@ -514,7 +513,7 @@ InitialiseParametre_Exit:
     ' Fin
 InitialiseParametre_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONPROCEDURE, "InitialiseParametre", vbNullString, Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "InitialiseParametre", vbNullString, Err
     ' Je Continue
     Resume InitialiseParametre_Exit
     ' Fin
@@ -656,7 +655,7 @@ LectureParametre_Exit:
     ' Fin
 LectureParametre_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONPROCEDURE, "LectureParametre", vbNullString, Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "LectureParametre", vbNullString, Err
     ' Je Continue
     Resume LectureParametre_Exit
     ' Fin
@@ -701,7 +700,7 @@ EcritureParametre_Exit:
     ' Fin
 EcritureParametre_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONPROCEDURE, "EcritureParametre", vbNullString, Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "EcritureParametre", vbNullString, Err
     ' Je Continue
     Resume EcritureParametre_Exit
     ' Fin
@@ -748,7 +747,7 @@ EditeControl_Exit:
     ' Fin
 EditeControl_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONPROCEDURE, "EditeControl", CStr(ctlControl.Name) & "," & CStr(blnEdite), Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "EditeControl", CStr(ctlControl.Name) & "," & CStr(blnEdite), Err
     ' Je Continue
     Resume EditeControl_Exit
     ' Fin
@@ -871,7 +870,7 @@ ValideFormBouton_Exit:
     ' Fin
 ValideFormBouton_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONPROCEDURE, "ValideFormBouton", CStr(frmBouton.Name) & "," & CStr(DErstCmd.DataMember) & "," & CStr(intIndex), Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "ValideFormBouton", CStr(frmBouton.Name) & "," & CStr(DErstCmd.DataMember) & "," & CStr(intIndex), Err
     ' Je Continue
     Resume ValideFormBouton_Exit
     ' Fin
@@ -926,7 +925,7 @@ ValideBouton_Exit:
     ' Fin
 ValideBouton_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONPROCEDURE, "ValideBouton", CStr(cmdBouton.Name) & "," & CStr(bvaValidation), Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "ValideBouton", CStr(cmdBouton.Name) & "," & CStr(bvaValidation), Err
     ' Je Continue
     Resume ValideBouton_Exit
     ' Fin
@@ -1030,7 +1029,7 @@ AjouteChampValeur_Exit:
 AjouteChampValeur_Erreur:
     ' Je l'ecrit dans le journal
 'FIXIT: 'Name)' n'est pas une propriété de l'objet 'Control' générique dans Visual Basic .NET. Pour accéder à 'Name)', déclarez 'ctlValeur' en utilisant son type effectif au lieu de 'Control'     FixIT90210ae-R1460-RCFE85
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONPROCEDURE, "AjouteChampValeur", CStr(ctlValeur.Name), Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "AjouteChampValeur", CStr(ctlValeur.Name), Err
     ' Je Continue
     Resume AjouteChampValeur_Exit
     ' Fin
@@ -1073,7 +1072,7 @@ ImporteFavorisInternet_Exit:
     ' Fin
 ImporteFavorisInternet_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONPROCEDURE, "ImporteFavorisInternet", vbNullString, Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "ImporteFavorisInternet", vbNullString, Err
     ' Je Continue
     Resume ImporteFavorisInternet_Exit
     ' Fin
@@ -1153,7 +1152,7 @@ ImporteFavorisRepertoire_Exit:
     ' Fin
 ImporteFavorisRepertoire_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONPROCEDURE, "ImporteFavorisRepertoire", fldRepertoireCourant.Name, Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "ImporteFavorisRepertoire", fldRepertoireCourant.Name, Err
     ' Je Continue
     Resume ImporteFavorisRepertoire_Exit
     ' Fin
@@ -1259,7 +1258,7 @@ ImporteFavorisFichier_Exit:
     ' Fin
 ImporteFavorisFichier_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONPROCEDURE, "ImporteFavorisFichier", fldRepertoireCourant.Name, Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "ImporteFavorisFichier", fldRepertoireCourant.Name, Err
     ' Je Continue
     Resume ImporteFavorisFichier_Exit
     ' Fin
@@ -1298,7 +1297,7 @@ ExporteFavorisInternet_Exit:
     ' Fin
 ExporteFavorisInternet_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONPROCEDURE, "ExporteFavorisInternet", vbNullString, Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "ExporteFavorisInternet", vbNullString, Err
     ' Je Continue
     Resume ExporteFavorisInternet_Exit
     ' Fin
@@ -1378,7 +1377,7 @@ ExporteFavorisRepertoire_Exit:
     ' Fin
 ExporteFavorisRepertoire_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONFONCTION, "ExporteFavorisRepertoire", vbNullString, Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONFONCTION, "ExporteFavorisRepertoire", vbNullString, Err
     ' Je Continue
     Resume ExporteFavorisRepertoire_Exit
     ' Fin
@@ -1451,7 +1450,7 @@ ExporteFavorisFichier_Exit:
     ' Fin
 ExporteFavorisFichier_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, mconFeuilleNom, INSTRUCTIONPROCEDURE, "ExporteFavorisFichier", strCategorieNom, Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "ExporteFavorisFichier", strCategorieNom, Err
     ' Je Continue
     Resume ExporteFavorisFichier_Exit
     ' Fin

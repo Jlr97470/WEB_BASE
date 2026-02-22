@@ -44,8 +44,7 @@ Attribute OutlookApp.VB_VarHelpID = -1
 '******************************************************************************
 '***    Constante Qui Defini Les Libelles De La feuille En Erreur                   ***
 '******************************************************************************
-Private Const mconFeuilleType = FEUILLEFORM                                                     ' Le type de feuille
-Private Const mconFeuilleNom = "frmExportationOutLook"                             ' Le nom de la Feuille
+Private Const LOGFEUILLENOM = "frmExportationOutLook"                             ' Le nom de la Feuille
 
 '******************************************************************************
 '***    Evenement                                                                                       ***
@@ -85,7 +84,7 @@ Form_Load_Exit:
     ' Fin
 Form_Load_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, mconFeuilleType, mconFeuilleNom, INSTRUCTIONEVENEMENT, "Form_Load", vbNullString, Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONEVENEMENT, "Form_Load", vbNullString, Err
     ' Je Continue
     Resume Form_Load_Exit
     ' Fin
