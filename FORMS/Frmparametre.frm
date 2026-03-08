@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomctl.ocx"
+Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.2#0"; "MSCOMCTL.OCX"
 Begin VB.Form frmParametre 
    BorderStyle     =   3  'Fixed Dialog
    Caption         =   "Parametre"
@@ -7,7 +7,7 @@ Begin VB.Form frmParametre
    ClientLeft      =   2565
    ClientTop       =   1500
    ClientWidth     =   6150
-   Icon            =   "frmParametre.frx":0000
+   Icon            =   "Frmparametre.frx":0000
    KeyPreview      =   -1  'True
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
@@ -20,14 +20,14 @@ Begin VB.Form frmParametre
       Height          =   4665
       Index           =   0
       Left            =   240
-      TabIndex        =   4
+      TabIndex        =   3
       Top             =   480
       Width           =   5655
       Begin VB.TextBox txtParametre 
          Height          =   285
          Index           =   5
          Left            =   2880
-         TabIndex        =   10
+         TabIndex        =   9
          Text            =   "Text1"
          Top             =   3480
          Width           =   2415
@@ -36,7 +36,7 @@ Begin VB.Form frmParametre
          Height          =   285
          Index           =   4
          Left            =   2880
-         TabIndex        =   9
+         TabIndex        =   8
          Text            =   "Text1"
          Top             =   2880
          Width           =   2415
@@ -45,7 +45,7 @@ Begin VB.Form frmParametre
          Height          =   285
          Index           =   3
          Left            =   2880
-         TabIndex        =   8
+         TabIndex        =   7
          Text            =   "Text1"
          Top             =   2160
          Width           =   2415
@@ -54,7 +54,7 @@ Begin VB.Form frmParametre
          Height          =   285
          Index           =   2
          Left            =   2880
-         TabIndex        =   7
+         TabIndex        =   6
          Text            =   "Text1"
          Top             =   1440
          Width           =   2415
@@ -63,7 +63,7 @@ Begin VB.Form frmParametre
          Height          =   270
          Index           =   1
          Left            =   2880
-         TabIndex        =   6
+         TabIndex        =   5
          Text            =   "Text1"
          Top             =   825
          Width           =   2415
@@ -72,7 +72,7 @@ Begin VB.Form frmParametre
          Height          =   285
          Index           =   0
          Left            =   2880
-         TabIndex        =   5
+         TabIndex        =   4
          Text            =   "Text1"
          Top             =   240
          Width           =   2415
@@ -82,7 +82,7 @@ Begin VB.Form frmParametre
          Height          =   255
          Index           =   5
          Left            =   240
-         TabIndex        =   16
+         TabIndex        =   15
          Top             =   3480
          Width           =   2535
       End
@@ -91,7 +91,7 @@ Begin VB.Form frmParametre
          Height          =   255
          Index           =   4
          Left            =   240
-         TabIndex        =   15
+         TabIndex        =   14
          Top             =   2880
          Width           =   2535
       End
@@ -100,7 +100,7 @@ Begin VB.Form frmParametre
          Height          =   255
          Index           =   3
          Left            =   240
-         TabIndex        =   14
+         TabIndex        =   13
          Top             =   2160
          Width           =   2535
       End
@@ -109,7 +109,7 @@ Begin VB.Form frmParametre
          Height          =   255
          Index           =   2
          Left            =   240
-         TabIndex        =   13
+         TabIndex        =   12
          Top             =   1560
          Width           =   2535
       End
@@ -118,7 +118,7 @@ Begin VB.Form frmParametre
          Height          =   255
          Index           =   1
          Left            =   240
-         TabIndex        =   12
+         TabIndex        =   11
          Top             =   945
          Width           =   2535
       End
@@ -127,26 +127,17 @@ Begin VB.Form frmParametre
          Height          =   255
          Index           =   0
          Left            =   240
-         TabIndex        =   11
+         TabIndex        =   10
          Top             =   360
          Width           =   2535
       End
-   End
-   Begin VB.CommandButton cmdBouton 
-      Caption         =   "Appliquer"
-      Height          =   375
-      Index           =   2
-      Left            =   4920
-      TabIndex        =   3
-      Top             =   5415
-      Width           =   1095
    End
    Begin VB.CommandButton cmdBouton 
       Cancel          =   -1  'True
       Caption         =   "Annuler"
       Height          =   375
       Index           =   1
-      Left            =   3720
+      Left            =   4920
       TabIndex        =   2
       Top             =   5415
       Width           =   1095
@@ -155,7 +146,7 @@ Begin VB.Form frmParametre
       Caption         =   "OK"
       Height          =   375
       Index           =   0
-      Left            =   2490
+      Left            =   3690
       TabIndex        =   1
       Top             =   5415
       Width           =   1095
@@ -214,6 +205,11 @@ Attribute VB_Exposed = False
 Option Explicit
 
 '******************************************************************************
+'***    Constante Qui Defini Les Libelles De La feuille En Erreur                   ***
+'******************************************************************************
+Private Const LOGFEUILLENOM = "frmParametre"                                       ' Le nom de la Feuille
+
+'******************************************************************************
 '***    Evenement                                                                                       ***
 '******************************************************************************
 
@@ -228,6 +224,9 @@ Option Explicit
 '***      Neant                                                                                             ***
 '******************************************************************************
 Private Sub Form_Load()
+
+    ' En Cas D'Erreur Je Gere L'Erreur
+    On Error GoTo Form_Load_Err
     ' Centre la feuille.
     Me.Move (Screen.Width - Me.Width) / 2, (Screen.Height - Me.Height) / 2
     
@@ -245,6 +244,17 @@ Private Sub Form_Load()
       
       txtParametre(5) = .strBasePhoto
     End With
+    ' Fin
+Form_Load_Exit:
+    ' Je Sort De La Procedure
+    Exit Sub
+    ' Fin
+Form_Load_Err:
+    ' Je l'ecrit dans le journal
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONEVENEMENT, "Form_cmdBouton_Click", vbNullString, Err
+    ' Je Continue
+    Resume Form_Load_Exit
+    ' Fin
 End Sub
 
 '******************************************************************************
@@ -258,6 +268,9 @@ End Sub
 '***      Neant                                                                                             ***
 '******************************************************************************
 Private Sub cmdBouton_Click(Index As Integer)
+
+    ' En Cas D'Erreur Je Gere L'Erreur
+    On Error GoTo cmdBouton_Click_Err
 
    Select Case Index
       Case 0
@@ -279,29 +292,25 @@ Private Sub cmdBouton_Click(Index As Integer)
       
          EcritureParametre
          
+         MsgBox "Paramétres Enregistrer !!"
+         
          Unload Me
       Case 1
       
          Unload Me
-      Case 2
-      
-         With guwbpParametre
          
-            .strSiteDomaine = txtParametre(0)
-         
-            .strSiteRepertoire = txtParametre(1)
-            
-            .strBaseRepertoire = txtParametre(2)
-            
-            .strBaseFichier = txtParametre(3)
-            
-            .strBaseLiens = txtParametre(4)
-            
-            .strBasePhoto = txtParametre(5)
-         End With
-      
-         EcritureParametre
    End Select
+    ' Fin
+cmdBouton_Click_Exit:
+    ' Je Sort De La Procedure
+    Exit Sub
+    ' Fin
+cmdBouton_Click_Err:
+    ' Je l'ecrit dans le journal
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONEVENEMENT, "Form_cmdBouton_Click", vbNullString, Err
+    ' Je Continue
+    Resume cmdBouton_Click_Exit
+    ' Fin
 End Sub
 
 '******************************************************************************
@@ -316,6 +325,9 @@ End Sub
 '******************************************************************************
 Private Sub txtParametre_Validate(Index As Integer, Cancel As Boolean)
     Dim fsoObjectFichier As New FileSystemObject                                          ' L'object de system de fichier
+    
+    ' En Cas D'Erreur Je Gere L'Erreur
+    On Error GoTo txtParametre_Validate_Err
 
    Select Case Index
       Case 0
@@ -373,4 +385,15 @@ Private Sub txtParametre_Validate(Index As Integer, Cancel As Boolean)
                Cancel = True
          End Select
       End Select
+      
+    ' Fin
+txtParametre_Validate_Exit:
+    ' Je Sort De La Procedure
+    Exit Sub
+    ' Fin
+txtParametre_Validate_Err:
+    ' Je l'ecrit dans le journal
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONEVENEMENT, "Form_cmdBouton_Click", vbNullString, Err
+    ' Je Continue
+    Resume txtParametre_Validate_Exit
 End Sub

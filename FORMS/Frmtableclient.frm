@@ -25,7 +25,6 @@ Begin VB.Form frmTableClient
          Height          =   285
          Index           =   2
          Left            =   2040
-         Locked          =   -1  'True
          TabIndex        =   30
          Tag             =   "4113"
          Top             =   720
@@ -121,8 +120,6 @@ Begin VB.Form frmTableClient
          _ExtentY        =   450
          _Version        =   393216
          PromptInclude   =   0   'False
-         MaxLength       =   10
-         Mask            =   "##/##/####"
          PromptChar      =   "_"
       End
       Begin MSMask.MaskEdBox mebChampValeur 

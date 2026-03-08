@@ -7,7 +7,6 @@ Begin VB.Form frmTableConnexion
    ClientLeft      =   45
    ClientTop       =   330
    ClientWidth     =   9645
-   LockControls    =   -1  'True
    MaxButton       =   0   'False
    MinButton       =   0   'False
    NegotiateMenus  =   0   'False
@@ -19,14 +18,13 @@ Begin VB.Form frmTableConnexion
       Height          =   735
       Left            =   0
       TabIndex        =   0
-      Tag             =   "100"
       Top             =   0
       Width           =   9615
       Begin VB.Label lblTableNom 
          Alignment       =   2  'Center
          Caption         =   "CONNEXION"
          Height          =   375
-         Left            =   480
+         Left            =   360
          TabIndex        =   1
          Tag             =   "101"
          Top             =   240
@@ -135,9 +133,33 @@ Begin VB.Form frmTableConnexion
       Height          =   3960
       Left            =   0
       TabIndex        =   2
-      Tag             =   "102"
+      Tag             =   "113"
       Top             =   735
       Width           =   9615
+      Begin VB.TextBox txtChampValeur 
+         DataField       =   "MacConRefere"
+         DataMember      =   "DEcmdTblConnexion"
+         DataSource      =   "DEWebBase"
+         Height          =   285
+         Index           =   1
+         Left            =   3360
+         TabIndex        =   26
+         Tag             =   "110"
+         Top             =   2760
+         Width           =   6135
+      End
+      Begin VB.TextBox txtChampValeur 
+         DataField       =   "MacConSessionID"
+         DataMember      =   "DEcmdTblConnexion"
+         DataSource      =   "DEWebBase"
+         Height          =   285
+         Index           =   0
+         Left            =   3360
+         TabIndex        =   25
+         Tag             =   "112"
+         Top             =   2280
+         Width           =   6135
+      End
       Begin VB.TextBox txtChampValeur 
          DataField       =   "MacConInterface"
          DataMember      =   "DEcmdTblConnexion"
@@ -221,6 +243,28 @@ Begin VB.Form frmTableConnexion
          _Version        =   393216
          AllowPrompt     =   -1  'True
          PromptChar      =   "_"
+      End
+      Begin VB.Label lblChampLibelle 
+         AutoSize        =   -1  'True
+         Caption         =   "REFERE :"
+         Height          =   195
+         Index           =   5
+         Left            =   120
+         TabIndex        =   27
+         Tag             =   "108"
+         Top             =   2760
+         Width           =   735
+      End
+      Begin VB.Label lblChampLibelle 
+         AutoSize        =   -1  'True
+         Caption         =   "SESSION ID :"
+         Height          =   195
+         Index           =   6
+         Left            =   120
+         TabIndex        =   24
+         Tag             =   "107"
+         Top             =   2280
+         Width           =   1005
       End
       Begin VB.Label lblChampLibelle 
          AutoSize        =   -1  'True
@@ -499,6 +543,35 @@ Begin VB.Form frmTableConnexion
             ColumnWidth     =   1110,047
          EndProperty
       EndProperty
+   End
+   Begin MSMask.MaskEdBox mebChampValeur 
+      Bindings        =   "Frmtableconnexion.frx":00F1
+      DataField       =   "MacConIP"
+      DataMember      =   "DEcmdTblConnexion"
+      DataSource      =   "DEWebBase"
+      Height          =   285
+      Index           =   2
+      Left            =   3240
+      TabIndex        =   22
+      Tag             =   "111"
+      Top             =   0
+      Width           =   6105
+      _ExtentX        =   10769
+      _ExtentY        =   503
+      _Version        =   393216
+      AllowPrompt     =   -1  'True
+      PromptChar      =   "_"
+   End
+   Begin VB.Label lblChampLibelle 
+      AutoSize        =   -1  'True
+      Caption         =   "REMOTE HOST:"
+      Height          =   195
+      Index           =   0
+      Left            =   0
+      TabIndex        =   23
+      Tag             =   "106"
+      Top             =   0
+      Width           =   1230
    End
 End
 Attribute VB_Name = "frmTableConnexion"

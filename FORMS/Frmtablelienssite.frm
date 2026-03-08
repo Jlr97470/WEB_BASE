@@ -178,7 +178,7 @@ Begin VB.Form frmTableLiensSite
          _ExtentX        =   10769
          _ExtentY        =   450
          _Version        =   393216
-         ListField       =   "CATEGORIENOM"
+         ListField       =   "LieCatNom"
          BoundColumn     =   "LieCatNum"
          Object.DataMember      =   "DEcmdTblLiensCategorie"
       End
