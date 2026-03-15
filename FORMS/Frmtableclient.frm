@@ -25,7 +25,7 @@ Begin VB.Form frmTableClient
          Height          =   285
          Index           =   2
          Left            =   2040
-         TabIndex        =   30
+         TabIndex        =   27
          Tag             =   "4113"
          Top             =   720
          Width           =   2055
@@ -36,8 +36,8 @@ Begin VB.Form frmTableClient
          DataSource      =   "DEWebBase"
          Height          =   285
          Index           =   1
-         Left            =   6600
-         TabIndex        =   17
+         Left            =   5640
+         TabIndex        =   14
          Top             =   360
          Width           =   2775
       End
@@ -48,7 +48,7 @@ Begin VB.Form frmTableClient
          Height          =   285
          Index           =   0
          Left            =   2040
-         TabIndex        =   15
+         TabIndex        =   13
          Tag             =   "4117"
          Top             =   2160
          Width           =   2055
@@ -61,7 +61,7 @@ Begin VB.Form frmTableClient
          Height          =   255
          Index           =   0
          Left            =   2040
-         TabIndex        =   11
+         TabIndex        =   10
          Tag             =   "4112"
          Top             =   360
          Width           =   2055
@@ -78,7 +78,7 @@ Begin VB.Form frmTableClient
          Height          =   255
          Index           =   2
          Left            =   2040
-         TabIndex        =   12
+         TabIndex        =   11
          Tag             =   "4114"
          Top             =   1080
          Width           =   2055
@@ -95,7 +95,7 @@ Begin VB.Form frmTableClient
          Height          =   255
          Index           =   3
          Left            =   2040
-         TabIndex        =   13
+         TabIndex        =   12
          Tag             =   "4115"
          Top             =   1440
          Width           =   2055
@@ -107,59 +107,39 @@ Begin VB.Form frmTableClient
       Begin MSMask.MaskEdBox mebChampValeur 
          Bindings        =   "Frmtableclient.frx":00BA
          DataField       =   "CliDateNai"
+         BeginProperty DataFormat 
+            Type            =   1
+            Format          =   "dd/MM/yyyy"
+            HaveTrueFalseNull=   0
+            FirstDayOfWeek  =   0
+            FirstWeekOfYear =   0
+            LCID            =   1036
+            SubFormatType   =   3
+         EndProperty
          DataMember      =   "DEcmdTblClient"
          DataSource      =   "DEWebBase"
-         Height          =   255
-         Index           =   4
+         Height          =   285
+         Index           =   1
          Left            =   2040
-         TabIndex        =   14
+         TabIndex        =   28
          Tag             =   "4116"
          Top             =   1800
-         Width           =   2055
-         _ExtentX        =   3625
-         _ExtentY        =   450
+         Width           =   2025
+         _ExtentX        =   3572
+         _ExtentY        =   503
          _Version        =   393216
-         PromptInclude   =   0   'False
-         PromptChar      =   "_"
-      End
-      Begin MSMask.MaskEdBox mebChampValeur 
-         Bindings        =   "Frmtableclient.frx":00F8
-         DataField       =   "CliVilNum"
-         DataMember      =   "DEcmdTblClient"
-         DataSource      =   "DEWebBase"
-         Height          =   255
-         Index           =   5
-         Left            =   2040
-         TabIndex        =   16
-         Tag             =   "4118"
-         Top             =   2640
-         Width           =   2055
-         _ExtentX        =   3625
-         _ExtentY        =   450
-         _Version        =   393216
+         AllowPrompt     =   -1  'True
          PromptChar      =   "_"
       End
       Begin VB.Label lblFieldLabel 
-         Caption         =   "MAIL"
+         Caption         =   "MAIL :"
          Height          =   255
          Index           =   0
          Left            =   5040
-         TabIndex        =   10
+         TabIndex        =   9
          Tag             =   "4110"
          Top             =   360
          Width           =   1455
-      End
-      Begin VB.Label lblFieldLabel 
-         Alignment       =   1  'Right Justify
-         AutoSize        =   -1  'True
-         Caption         =   "VILLE:"
-         Height          =   195
-         Index           =   7
-         Left            =   1470
-         TabIndex        =   9
-         Tag             =   "4109"
-         Top             =   2640
-         Width           =   480
       End
       Begin VB.Label lblFieldLabel 
          Alignment       =   1  'Right Justify
@@ -237,7 +217,7 @@ Begin VB.Form frmTableClient
    Begin VB.Frame fraTableCommand 
       Height          =   1095
       Left            =   0
-      TabIndex        =   18
+      TabIndex        =   15
       Tag             =   "4122"
       Top             =   7440
       Width           =   9615
@@ -246,7 +226,7 @@ Begin VB.Form frmTableClient
          Height          =   735
          Index           =   7
          Left            =   7440
-         TabIndex        =   26
+         TabIndex        =   23
          Tag             =   "4130"
          Top             =   240
          Width           =   855
@@ -256,7 +236,7 @@ Begin VB.Form frmTableClient
          Height          =   735
          Index           =   6
          Left            =   6240
-         TabIndex        =   25
+         TabIndex        =   22
          Tag             =   "4129"
          Top             =   240
          Width           =   855
@@ -266,7 +246,7 @@ Begin VB.Form frmTableClient
          Height          =   735
          Index           =   5
          Left            =   5040
-         TabIndex        =   24
+         TabIndex        =   21
          Tag             =   "4128"
          Top             =   240
          Width           =   855
@@ -276,7 +256,7 @@ Begin VB.Form frmTableClient
          Height          =   735
          Index           =   4
          Left            =   4080
-         TabIndex        =   23
+         TabIndex        =   20
          Tag             =   "4127"
          Top             =   240
          Width           =   855
@@ -286,7 +266,7 @@ Begin VB.Form frmTableClient
          Height          =   735
          Index           =   3
          Left            =   3000
-         TabIndex        =   22
+         TabIndex        =   19
          Tag             =   "4126"
          Top             =   240
          Width           =   855
@@ -296,7 +276,7 @@ Begin VB.Form frmTableClient
          Height          =   735
          Index           =   2
          Left            =   2040
-         TabIndex        =   21
+         TabIndex        =   18
          Tag             =   "4125"
          Top             =   240
          Width           =   855
@@ -306,7 +286,7 @@ Begin VB.Form frmTableClient
          Height          =   735
          Index           =   1
          Left            =   1080
-         TabIndex        =   20
+         TabIndex        =   17
          Tag             =   "4124"
          Top             =   240
          Width           =   855
@@ -316,7 +296,7 @@ Begin VB.Form frmTableClient
          Height          =   735
          Index           =   0
          Left            =   120
-         TabIndex        =   19
+         TabIndex        =   16
          Tag             =   "4123"
          Top             =   240
          Width           =   855
@@ -326,7 +306,7 @@ Begin VB.Form frmTableClient
          Height          =   735
          Index           =   8
          Left            =   8400
-         TabIndex        =   27
+         TabIndex        =   24
          Tag             =   "4131"
          Top             =   240
          Width           =   975
@@ -351,10 +331,10 @@ Begin VB.Form frmTableClient
       End
    End
    Begin MSDataGridLib.DataGrid dgdTable 
-      Bindings        =   "Frmtableclient.frx":0136
+      Bindings        =   "Frmtableclient.frx":00FD
       Height          =   2415
       Left            =   15
-      TabIndex        =   28
+      TabIndex        =   25
       Tag             =   "3113"
       Top             =   5025
       Width           =   9540
@@ -795,14 +775,14 @@ Begin VB.Form frmTableClient
       EndProperty
    End
    Begin MSMask.MaskEdBox mebChampValeur 
-      Bindings        =   "Frmtableclient.frx":014E
+      Bindings        =   "Frmtableclient.frx":0115
       DataField       =   "CliLogin"
       DataMember      =   "DEcmdTblClient"
       DataSource      =   "DEWebBase"
       Height          =   255
       Index           =   6
       Left            =   0
-      TabIndex        =   29
+      TabIndex        =   26
       Tag             =   "4112"
       Top             =   0
       Width           =   2055

@@ -58,7 +58,7 @@ Begin VB.Form frmTableLiensSite
          TabIndex        =   14
          Tag             =   "1118"
          Top             =   240
-         Width           =   855
+         Width           =   885
       End
       Begin VB.CommandButton cmdBouton 
          Caption         =   "<"
@@ -68,7 +68,7 @@ Begin VB.Form frmTableLiensSite
          TabIndex        =   15
          Tag             =   "1119"
          Top             =   240
-         Width           =   855
+         Width           =   885
       End
       Begin VB.CommandButton cmdBouton 
          Caption         =   ">"
@@ -179,7 +179,7 @@ Begin VB.Form frmTableLiensSite
          _ExtentY        =   450
          _Version        =   393216
          ListField       =   "LieCatNom"
-         BoundColumn     =   "LieCatNum"
+         BoundColumn     =   "LieCatNom"
          Object.DataMember      =   "DEcmdTblLiensCategorie"
       End
       Begin VB.TextBox txtChampValeur 

@@ -144,7 +144,7 @@ Begin VB.Form frmTableAccueil
          _Version        =   393216
          ListField       =   "CLIENT"
          BoundColumn     =   "CLIENTNUMERO"
-         Text            =   "DataCombo1"
+         Text            =   ""
          Object.DataMember      =   "DECmdVuelClientNumeroNom"
       End
       Begin VB.TextBox txtChampValeur 
@@ -258,14 +258,14 @@ Begin VB.Form frmTableAccueil
       End
       Begin VB.Label lblChampLibelle 
          AutoSize        =   -1  'True
-         Caption         =   "THEME:"
+         Caption         =   "TITRE :"
          Height          =   195
          Index           =   2
          Left            =   120
          TabIndex        =   4
          Tag             =   "3103"
          Top             =   1320
-         Width           =   615
+         Width           =   570
       End
       Begin VB.Label lblChampLibelle 
          AutoSize        =   -1  'True

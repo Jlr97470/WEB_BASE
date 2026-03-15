@@ -1,6 +1,6 @@
 Type=Exe
 Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\..\..\WINDOWS\system32\stdole2.tlb#OLE Automation
-Reference=*\G{00062FFF-0000-0000-C000-000000000046}#9.1#0#..\..\..\..\..\..\Program Files (x86)\Microsoft Office\Office12\msoutl.olb#Microsoft Outlook 10.0 Object Library
+Reference=*\G{00062FFF-0000-0000-C000-000000000046}#9.1#0#..\..\..\..\..\..\Program Files (x86)\Microsoft Office\Office12\MSOUTL.OLB#Microsoft Outlook 10.0 Object Library
 Reference=*\G{00000205-0000-0010-8000-00AA006D2EA4}#2.5#0#..\..\..\..\..\..\Program Files (x86)\Common Files\system\ado\msado25.tlb#Microsoft ActiveX Data Objects 2.0 Library
 Reference=*\G{56BF9020-7A2F-11D0-9482-00A0C91110ED}#1.0#0#..\..\..\..\..\..\WINDOWS\SysWow64\MSBIND.DLL#Microsoft Data Binding Collection
 Reference=*\G{642AC760-AAB4-11D0-8494-00A0C90DC8A9}#1.0#0#..\..\..\..\..\..\WINDOWS\SysWow64\MSDBRPTR.DLL#Microsoft Data Report Designer v6.0
