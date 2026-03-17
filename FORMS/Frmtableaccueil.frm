@@ -131,8 +131,8 @@ Begin VB.Form frmTableAccueil
       End
       Begin MSDataListLib.DataCombo mcbChampValeur 
          Bindings        =   "Frmtableaccueil.frx":0000
-         DataField       =   "CliNum"
-         DataMember      =   "DEcmdTblClient"
+         DataField       =   "ArtCliNum"
+         DataMember      =   "DEcmdTblAccueil"
          DataSource      =   "DEWebBase"
          Height          =   315
          Left            =   3375
@@ -142,10 +142,10 @@ Begin VB.Form frmTableAccueil
          _ExtentX        =   10716
          _ExtentY        =   556
          _Version        =   393216
-         ListField       =   "CLIENT"
-         BoundColumn     =   "CLIENTNUMERO"
+         ListField       =   "CliNom"
+         BoundColumn     =   "CliNum"
          Text            =   ""
-         Object.DataMember      =   "DECmdVuelClientNumeroNom"
+         Object.DataMember      =   "DEcmdTblClient"
       End
       Begin VB.TextBox txtChampValeur 
          DataField       =   "ArtDescription"
@@ -161,7 +161,7 @@ Begin VB.Form frmTableAccueil
          Width           =   6135
       End
       Begin MSMask.MaskEdBox mebChampValeur 
-         Bindings        =   "Frmtableaccueil.frx":004D
+         Bindings        =   "Frmtableaccueil.frx":004E
          DataField       =   "ArtDateCre"
          BeginProperty DataFormat 
             Type            =   1
@@ -188,7 +188,7 @@ Begin VB.Form frmTableAccueil
          PromptChar      =   "_"
       End
       Begin MSMask.MaskEdBox mebChampValeur 
-         Bindings        =   "Frmtableaccueil.frx":008D
+         Bindings        =   "Frmtableaccueil.frx":008E
          DataField       =   "ArtTitre"
          DataMember      =   "DEcmdTblAccueil"
          DataSource      =   "DEWebBase"
@@ -206,7 +206,7 @@ Begin VB.Form frmTableAccueil
          PromptChar      =   "_"
       End
       Begin MSMask.MaskEdBox mebChampValeur 
-         Bindings        =   "Frmtableaccueil.frx":00CE
+         Bindings        =   "Frmtableaccueil.frx":00CF
          DataField       =   "ArtAuteur"
          DataMember      =   "DEcmdTblAccueil"
          DataSource      =   "DEWebBase"
@@ -298,7 +298,7 @@ Begin VB.Form frmTableAccueil
       End
    End
    Begin MSDataGridLib.DataGrid dgdTable 
-      Bindings        =   "Frmtableaccueil.frx":0118
+      Bindings        =   "Frmtableaccueil.frx":0119
       Height          =   2085
       Left            =   0
       TabIndex        =   22

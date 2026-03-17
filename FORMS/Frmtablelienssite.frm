@@ -179,7 +179,7 @@ Begin VB.Form frmTableLiensSite
          _ExtentY        =   450
          _Version        =   393216
          ListField       =   "LieCatNom"
-         BoundColumn     =   "LieCatNom"
+         BoundColumn     =   "LieCatNum"
          Object.DataMember      =   "DEcmdTblLiensCategorie"
       End
       Begin VB.TextBox txtChampValeur 
