@@ -780,10 +780,7 @@ Public Sub ValideFormBouton(ByRef frmBouton As Form, ByRef DErstCmd As Recordset
                     EditeControl frmBouton, True
                     
                     frmBouton.dgdTable.Enabled = False
-                    
-                    StrDataMember = frmBouton.dgdTable.DataMember
-                    
-                    frmBouton.dgdTable.DataMember = ""
+    
                 Case COMMANDVALIDER
                 
                     DErstCmd.Update
@@ -794,9 +791,6 @@ Public Sub ValideFormBouton(ByRef frmBouton As Form, ByRef DErstCmd As Recordset
                     
                     frmBouton.dgdTable.Enabled = True
                     
-                    frmBouton.dgdTable.DataMember = StrDataMember
-                    
-                    ReactiveControlData frmBouton
                 Case COMMANDANNULER
                     Select Case DErstCmd.EditMode
                         Case adEditNone
@@ -811,8 +805,6 @@ Public Sub ValideFormBouton(ByRef frmBouton As Form, ByRef DErstCmd As Recordset
                     EditeControl frmBouton, False
                     
                     frmBouton.dgdTable.Enabled = True
-                    
-                    frmBouton.dgdTable.DataMember = StrDataMember
                     
                 Case COMMANDSUPPRIMER
                                                                             
@@ -871,11 +863,7 @@ Public Sub ValideFormBouton(ByRef frmBouton As Form, ByRef DErstCmd As Recordset
             EditeControl frmBouton, True
             
             frmBouton.dgdTable.Enabled = False
-            
-            StrDataMember = frmBouton.dgdTable.DataMember
-            
-            frmBouton.dgdTable.DataMember = ""
-            
+                       
     End Select
     ' Fin
 ValideFormBouton_Exit:
