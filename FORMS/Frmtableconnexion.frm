@@ -682,6 +682,7 @@ cmdBouton_Click_Erreur:
     ' Fin
 End Sub
 
+
 '******************************************************************************
 '***    EVENEMENT:                                                                                    ***
 '***        mebChampValeur_GotFocus(Index As Integer)                                ***
@@ -695,6 +696,7 @@ End Sub
 '***      Neant                                                                                             ***
 '******************************************************************************
 Private Sub mebChampValeur_GotFocus(Index As Integer)
+    Dim StrValeur As String
     ' En Cas D'Erreur Je Gere L'Erreur
     On Error GoTo mebChampValeur_GotFocus_Erreur
     ' Je positionne le point d'insertion

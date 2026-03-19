@@ -512,7 +512,7 @@ End Sub
 Private Sub cmdBouton_Click(Index As Integer)
     ' En Cas D'Erreur Je Gere L'Erreur
     On Error GoTo cmdBouton_Click_Erreur
-
+    
     ValideFormBouton Me, DEWebBase.rsDEcmdTblLiensCategorie, Index
     ' Fin
 cmdBouton_Click_Exit:

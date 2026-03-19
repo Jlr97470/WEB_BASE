@@ -610,6 +610,15 @@ End Sub
 Private Sub cmdBouton_Click(Index As Integer)
     ' En Cas D'Erreur Je Gere L'Erreur
     On Error GoTo cmdBouton_Click_Erreur
+    
+    Select Case DEWebBase.rsDEcmdTblAccueil.EditMode
+        Case adEditAdd
+        
+            DEWebBase.rsDEcmdTblAccueil.Fields("ArtArtCatNum") = 1
+            
+        Case Else
+    
+    End Select
     ' Je Valide L'Action Sur Les Boutons De Commande
     ValideFormBouton Me, DEWebBase.rsDEcmdTblAccueil, Index
     ' Fin

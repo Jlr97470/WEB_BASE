@@ -960,7 +960,7 @@ Public Sub AjouteChampValeur(ByRef colctlChampValeur As Object)
     Dim ctlValeur As Control
     Dim DErstCmd As Recordset
     Dim DEfldValeur As Field
-    Dim strValeur As String
+    Dim StrValeur As String
     ' En Cas D'Erreur Je Gere L'Erreur
     On Error GoTo AjouteChampValeur_Erreur
     
@@ -999,34 +999,34 @@ Public Sub AjouteChampValeur(ByRef colctlChampValeur As Object)
                             Case Else
                             
 'FIXIT: 'Mask' n'est pas une propriété de l'objet 'Control' générique dans Visual Basic .NET. Pour accéder à 'Mask', déclarez 'ctlValeur' en utilisant son type effectif au lieu de 'Control'     FixIT90210ae-R1460-RCFE85
-                                strValeur = ctlValeur.Mask
+                                StrValeur = ctlValeur.Mask
                                 
 'FIXIT: 'PromptInclude' n'est pas une propriété de l'objet 'Control' générique dans Visual Basic .NET. Pour accéder à 'PromptInclude', déclarez 'ctlValeur' en utilisant son type effectif au lieu de 'Control'     FixIT90210ae-R1460-RCFE85
                                 Select Case ctlValeur.PromptInclude
                                     Case True
                                     
-                                        strValeur = Replace(strValeur, "#", "0")
-                                        strValeur = Replace(strValeur, "9", "0")
+                                        StrValeur = Replace(StrValeur, "#", "0")
+                                        StrValeur = Replace(StrValeur, "9", "0")
 'FIXIT: 'PromptChar' n'est pas une propriété de l'objet 'Control' générique dans Visual Basic .NET. Pour accéder à 'PromptChar', déclarez 'ctlValeur' en utilisant son type effectif au lieu de 'Control'     FixIT90210ae-R1460-RCFE85
-                                        strValeur = Replace(strValeur, "&", ctlValeur.PromptChar)
+                                        StrValeur = Replace(StrValeur, "&", ctlValeur.PromptChar)
 'FIXIT: 'PromptChar' n'est pas une propriété de l'objet 'Control' générique dans Visual Basic .NET. Pour accéder à 'PromptChar', déclarez 'ctlValeur' en utilisant son type effectif au lieu de 'Control'     FixIT90210ae-R1460-RCFE85
-                                        strValeur = Replace(strValeur, "?", ctlValeur.PromptChar)
+                                        StrValeur = Replace(StrValeur, "?", ctlValeur.PromptChar)
 'FIXIT: 'PromptChar' n'est pas une propriété de l'objet 'Control' générique dans Visual Basic .NET. Pour accéder à 'PromptChar', déclarez 'ctlValeur' en utilisant son type effectif au lieu de 'Control'     FixIT90210ae-R1460-RCFE85
-                                        strValeur = Replace(strValeur, "C", ctlValeur.PromptChar)
-                                        strValeur = Replace(strValeur, "<", vbNullString)
-                                        strValeur = Replace(strValeur, ">", vbNullString)
+                                        StrValeur = Replace(StrValeur, "C", ctlValeur.PromptChar)
+                                        StrValeur = Replace(StrValeur, "<", vbNullString)
+                                        StrValeur = Replace(StrValeur, ">", vbNullString)
                                     Case False
                                     
-                                        strValeur = Replace(strValeur, "#", "0")
-                                        strValeur = Replace(strValeur, "9", "0")
-                                        strValeur = Replace(strValeur, "&", vbNullString)
-                                        strValeur = Replace(strValeur, "?", vbNullString)
-                                        strValeur = Replace(strValeur, "C", vbNullString)
-                                        strValeur = Replace(strValeur, "<", vbNullString)
-                                        strValeur = Replace(strValeur, ">", vbNullString)
+                                        StrValeur = Replace(StrValeur, "#", "0")
+                                        StrValeur = Replace(StrValeur, "9", "0")
+                                        StrValeur = Replace(StrValeur, "&", vbNullString)
+                                        StrValeur = Replace(StrValeur, "?", vbNullString)
+                                        StrValeur = Replace(StrValeur, "C", vbNullString)
+                                        StrValeur = Replace(StrValeur, "<", vbNullString)
+                                        StrValeur = Replace(StrValeur, ">", vbNullString)
                                 End Select
                                 
-                                DEfldValeur = strValeur
+                                DEfldValeur = StrValeur
                         End Select
                     Case Else
                     
@@ -1104,9 +1104,9 @@ End Sub
 '******************************************************************************
 Private Sub ImporteFavorisRepertoire(ByRef fldRepertoireCourant As Folder)
     Dim fldRepertoireSous As Folder
-    Dim strCategorieNom As String * 60
-    Dim strCategorieTitre As String * 60
-    Dim strCategorieDescription As String * 200
+    Dim strLieCatNom As String * 60
+    Dim strLieCatDescription As String * 60
+    Dim strLieCatContenue As String * 200
     ' En Cas D'Erreur Je Gere L'Erreur
     On Error GoTo ImporteFavorisRepertoire_Erreur
     
@@ -1119,15 +1119,15 @@ Private Sub ImporteFavorisRepertoire(ByRef fldRepertoireCourant As Folder)
     
 'FIXIT: Remplacer la fonction 'UCase' par la fonction 'UCase$'                             FixIT90210ae-R9757-R1B8ZE
 'FIXIT: Remplacer la fonction 'Mid' par la fonction 'Mid$'                                 FixIT90210ae-R9757-R1B8ZE
-            strCategorieNom = Replace(UCase(Mid(fldRepertoireSous.Path, Len(guwbpParametre.strFavorisRepertoire) + 2) & "\"), Chr$(39), " ")
+            strLieCatNom = Replace(UCase(Mid(fldRepertoireSous.Path, Len(guwbpParametre.strFavorisRepertoire) + 2) & "\"), Chr$(39), " ")
             
 'FIXIT: Remplacer la fonction 'UCase' par la fonction 'UCase$'                             FixIT90210ae-R9757-R1B8ZE
-            strCategorieTitre = UCase(fldRepertoireSous.Name)
+            strLieCatDescription = UCase(fldRepertoireSous.Name)
     
-            gfprFicProfiler.LectureValeur fldRepertoireSous & "\Desktop.ini", "DELTA", "DESCRIPTION", strCategorieDescription, "Aucunne Description"
+            gfprFicProfiler.LectureValeur fldRepertoireSous & "\Desktop.ini", "DELTA", "DESCRIPTION", strLieCatContenue, "Aucunne Description"
                                         
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
-            .rsDEcmdTblLiensCategorie.Filter = "[CATEGORIENOM] = " & Chr$(39) & Trim(strCategorieNom) & Chr$(39)
+            .rsDEcmdTblLiensCategorie.Filter = "[LieCatNom] = " & Chr$(39) & Trim(strLieCatNom) & Chr$(39)
             
             Select Case .rsDEcmdTblLiensCategorie.EOF
                 Case True
@@ -1138,20 +1138,20 @@ Private Sub ImporteFavorisRepertoire(ByRef fldRepertoireCourant As Folder)
             End Select
                                                                               
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
-            .rsDEcmdTblLiensCategorie("CATEGORIENOM") = Trim(strCategorieNom)
+            .rsDEcmdTblLiensCategorie("LieCatNom") = Trim(strLieCatNom)
             
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
-            .rsDEcmdTblLiensCategorie("CATEGORIETITRE") = Trim(strCategorieTitre)
+            .rsDEcmdTblLiensCategorie("LieCatDescription") = Trim(strLieCatDescription)
             
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
-            .rsDEcmdTblLiensCategorie("CATEGORIEDESCRIPTION") = Trim(Replace(strCategorieDescription, "%10%13", vbCrLf))
+            .rsDEcmdTblLiensCategorie("LieCatContenue") = Trim(Replace(strLieCatContenue, "%10%13", vbCrLf))
                             
             .rsDEcmdTblLiensCategorie.Update
             
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
-            mdiWebBase.sbrDeltaWebBase.SimpleText = "AJOUTE:=CATEGORIE:-NOM:" & Trim(strCategorieNom) & "-TITRE:" & Trim(strCategorieTitre) & "-DESCRIPTION:" & Trim(strCategorieDescription)
+            mdiWebBase.sbrDeltaWebBase.SimpleText = "AJOUTE:=CATEGORIE:-NOM:" & Trim(strLieCatNom) & "-TITRE:" & Trim(strLieCatDescription) & "-DESCRIPTION:" & Trim(strLieCatContenue)
 
             ImporteFavorisFichier fldRepertoireSous
             
@@ -1184,11 +1184,11 @@ End Sub
 '******************************************************************************
 Private Sub ImporteFavorisFichier(ByRef fldRepertoireCourant As Folder)
     Dim filFichierCourant As File
-    Dim strLiensSite As String * 60
-    Dim strLiensDate As String * 10
-    Dim strLiensUrl As String * 60
-    Dim strLiensPhoto As String * 60
-    Dim strLiensDescription As String * 200
+    Dim strLieSite As String * 60
+    Dim strLieDate As String * 10
+    Dim strLieUrl As String * 60
+    Dim strLieImageMin As String * 60
+    Dim strLieDescription As String * 200
     ' En Cas D'Erreur Je Gere L'Erreur
     On Error GoTo ImporteFavorisFichier_Erreur
         
@@ -1206,26 +1206,26 @@ Private Sub ImporteFavorisFichier(ByRef fldRepertoireCourant As Folder)
                                        
 'FIXIT: Remplacer la fonction 'UCase' par la fonction 'UCase$'                             FixIT90210ae-R9757-R1B8ZE
 'FIXIT: Remplacer la fonction 'Left' par la fonction 'Left$'                               FixIT90210ae-R9757-R1B8ZE
-                    strLiensSite = Replace(UCase(Left(filFichierCourant.Name, Len(filFichierCourant.Name) - 4)), Chr$(39), " ")
+                    strLieSite = Replace(UCase(Left(filFichierCourant.Name, Len(filFichierCourant.Name) - 4)), Chr$(39), " ")
                                         
-                    gfprFicProfiler.LectureValeur filFichierCourant.Path, "InternetShortcut", "URL", strLiensUrl, vbNullString
+                    gfprFicProfiler.LectureValeur filFichierCourant.Path, "InternetShortcut", "URL", strLieUrl, vbNullString
                     
 'FIXIT: Remplacer la fonction 'LCase' par la fonction 'LCase$'                             FixIT90210ae-R9757-R1B8ZE
-                    strLiensUrl = Replace(LCase(strLiensUrl), Chr$(39), " ")
+                    strLieUrl = Replace(LCase(strLieUrl), Chr$(39), " ")
                     
-                    Select Case strLiensUrl
+                    Select Case strLieUrl
                         Case vbNullString
                         
                         Case Else
                                                 
-                            strLiensDate = Date
+                            strLieDate = Date
                             
-                            gfprFicProfiler.LectureValeur filFichierCourant.Path, "DELTA", "PHOTO", strLiensPhoto, "default.gif"
+                            gfprFicProfiler.LectureValeur filFichierCourant.Path, "DELTA", "PHOTO", strLieImageMin, "default.gif"
                             
-                            gfprFicProfiler.LectureValeur filFichierCourant.Path, "DELTA", "DESCRIPTION", strLiensDescription, "Internet Favoris"
+                            gfprFicProfiler.LectureValeur filFichierCourant.Path, "DELTA", "DESCRIPTION", strLieDescription, "Internet Favoris"
                                                                             
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
-                            .rsDEcmdTblLiensSite.Filter = "[CATEGORIENUMERO] = " & Chr$(39) & .rsDEcmdTblLiensCategorie("CATEGORIENUMERO") & Chr$(39) & " AND [LIENSSITE] = " & Chr$(39) & Trim(strLiensSite) & Chr$(39)
+                            .rsDEcmdTblLiensSite.Filter = "[LieCatNumero] = " & Chr$(39) & .rsDEcmdTblLiensCategorie("LieCatNumero") & Chr$(39) & " AND [LieSite] = " & Chr$(39) & Trim(strLieSite) & Chr$(39)
                                     
                             Select Case .rsDEcmdTblLiensSite.EOF
                                 Case True
@@ -1235,29 +1235,29 @@ Private Sub ImporteFavorisFichier(ByRef fldRepertoireCourant As Folder)
                                 
                             End Select
                             
-                           .rsDEcmdTblLiensSite("CATEGORIENUMERO") = .rsDEcmdTblLiensCategorie("CATEGORIENUMERO")
+                           .rsDEcmdTblLiensSite("LieCatNumero") = .rsDEcmdTblLiensCategorie("LieCatNumero")
                            
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
-                           .rsDEcmdTblLiensSite("LIENSSITE") = Trim(strLiensSite)
+                           .rsDEcmdTblLiensSite("LieSite") = Trim(strLieSite)
                            
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
-                           .rsDEcmdTblLiensSite("LIENSDATE") = Trim(strLiensDate)
+                           .rsDEcmdTblLiensSite("LieDate") = Trim(strLieDate)
                                                        
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
-                           .rsDEcmdTblLiensSite("LIENSURL") = Trim(strLiensUrl)
+                           .rsDEcmdTblLiensSite("LieUrl") = Trim(strLieUrl)
                            
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
-                           .rsDEcmdTblLiensSite("LIENSPHOTO") = Trim(strLiensPhoto)
+                           .rsDEcmdTblLiensSite("LieImageMin") = Trim(strLieImageMin)
                            
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
-                           .rsDEcmdTblLiensSite("LIENSDESCRIPTION") = Trim(Replace(strLiensDescription, "%10%13", vbCrLf))
+                           .rsDEcmdTblLiensSite("LieDescription") = Trim(Replace(strLieDescription, "%10%13", vbCrLf))
                            
                            .rsDEcmdTblLiensSite.Update
                            
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
-                           mdiWebBase.sbrDeltaWebBase.SimpleText = "AJOUTE:=LIENS:-SITE:" & Trim(strLiensSite) & "-URL:" & Trim(strLiensUrl) & "-DESCRIPTION:" & Trim(strLiensDescription)
+                           mdiWebBase.sbrDeltaWebBase.SimpleText = "AJOUTE:=LIENS:-SITE:" & Trim(strLieSite) & "-URL:" & Trim(strLieUrl) & "-DESCRIPTION:" & Trim(strLieDescription)
                     End Select
                 Case Else
                 
@@ -1330,9 +1330,9 @@ End Sub
 Private Sub ExporteFavorisRepertoire()
     Dim fsoObjectFichier As New FileSystemObject                                          ' L'object de system de fichier
     Dim intNomIndex As Integer
-    Dim strCategorieNom As String
-    Dim strCategorieTitre As String
-    Dim strCategorieDescription As String
+    Dim strLieCatNom As String
+    Dim strLieCatDescription As String
+    Dim strLieCatContenue As String
     ' En Cas D'Erreur Je Gere L'Erreur
     On Error GoTo ExporteFavorisRepertoire_Erreur
         
@@ -1347,38 +1347,46 @@ Private Sub ExporteFavorisRepertoire()
                     
                 Do Until .rsDEcmdTblLiensCategorie.EOF = True
                 
-                    strCategorieNom = .rsDEcmdTblLiensCategorie("CATEGORIENOM")
+                    strLieCatNom = .rsDEcmdTblLiensCategorie("LieCatNom")
                     
-                    strCategorieTitre = .rsDEcmdTblLiensCategorie("CATEGORIETITRE")
+                    strLieCatDescription = .rsDEcmdTblLiensCategorie("LieCatDescription")
                     
-                    strCategorieDescription = Replace(.rsDEcmdTblLiensCategorie("CATEGORIEDESCRIPTION"), vbCrLf, "%10%13")
+                    If Not IsNull(.rsDEcmdTblLiensCategorie("LieCatContenue")) Then
                     
-                    mdiWebBase.sbrDeltaWebBase.SimpleText = "CATEGORIE:=" & strCategorieNom
+                        strLieCatContenue = Replace(.rsDEcmdTblLiensCategorie("LieCatContenue"), vbCrLf, "%10%13")
+                        
+                    Else
+                    
+                        strLieCatContenue = ""
+                    
+                    End If
+                    
+                    mdiWebBase.sbrDeltaWebBase.SimpleText = "CATEGORIE:=" & strLieCatNom
                     
                     intNomIndex = 1
                                         
-                    Do Until InStr(intNomIndex + 1, strCategorieNom, "\") = 0
+                    Do Until InStr(intNomIndex + 1, strLieCatNom + "\", "\") = 0
                     
-                        intNomIndex = InStr(intNomIndex + 1, strCategorieNom, "\")
+                        intNomIndex = InStr(intNomIndex + 1, strLieCatNom + "\", "\")
                                                                 
 'FIXIT: Remplacer la fonction 'Left' par la fonction 'Left$'                               FixIT90210ae-R9757-R1B8ZE
-                        Select Case fsoObjectFichier.FolderExists(guwbpParametre.strFavorisRepertoire & "\" & Left(strCategorieNom, intNomIndex))
+                        Select Case fsoObjectFichier.FolderExists(guwbpParametre.strFavorisRepertoire & "\" & Left(strLieCatNom + "\", intNomIndex))
                             Case True
                             
                             Case False
                                                     
 'FIXIT: Remplacer la fonction 'Left' par la fonction 'Left$'                               FixIT90210ae-R9757-R1B8ZE
-                                fsoObjectFichier.CreateFolder (guwbpParametre.strFavorisRepertoire & "\" & Left(strCategorieNom, intNomIndex))
+                                fsoObjectFichier.CreateFolder (guwbpParametre.strFavorisRepertoire & "\" & Left(strLieCatNom + "\", intNomIndex))
                                                     
 'FIXIT: Remplacer la fonction 'Left' par la fonction 'Left$'                               FixIT90210ae-R9757-R1B8ZE
-                                mdiWebBase.sbrDeltaWebBase.SimpleText = "AJOUTE:=REPERTOIRE:" & (guwbpParametre.strFavorisRepertoire & "\" & Left(strCategorieNom, intNomIndex))
+                                mdiWebBase.sbrDeltaWebBase.SimpleText = "AJOUTE:=REPERTOIRE:" & (guwbpParametre.strFavorisRepertoire & "\" & Left(strLieCatNom + "\", intNomIndex))
                         End Select
                         
                     Loop
                                                                                                                                                              
-                    gfprFicProfiler.EcritureValeur guwbpParametre.strFavorisRepertoire & "\" & strCategorieNom & "Desktop.ini", "DELTA", "DESCRIPTION", strCategorieDescription
+                    gfprFicProfiler.EcritureValeur guwbpParametre.strFavorisRepertoire & "\" & strLieCatNom & "Desktop.ini", "DELTA", "DESCRIPTION", strLieCatContenue
                                                                                                                      
-                    ExporteFavorisFichier strCategorieNom
+                    ExporteFavorisFichier strLieCatNom
                     
                     .rsDEcmdTblLiensCategorie.MoveNext
                 Loop
@@ -1407,12 +1415,12 @@ End Sub
 '******************************************************************************
 '***    EXEMPLE:                                                                                        ***
 '******************************************************************************
-Private Sub ExporteFavorisFichier(ByRef strCategorieNom As String)
-    Dim strLiensSite As String
-    Dim strLiensDate As String
-    Dim strLiensUrl As String
-    Dim strLiensPhoto As String
-    Dim strLiensDescription As String
+Private Sub ExporteFavorisFichier(ByRef strLieCatNom As String)
+    Dim strLieSite As String
+    Dim strLieDate As String
+    Dim strLieUrl As String
+    Dim strLieImageMin As String
+    Dim strLieDescription As String
     ' En Cas D'Erreur Je Gere L'Erreur
     On Error GoTo ExporteFavorisFichier_Erreur
         
@@ -1420,7 +1428,7 @@ Private Sub ExporteFavorisFichier(ByRef strCategorieNom As String)
                            
             DoEvents
                                                                                         
-            .rsDEcmdTblLiensSite.Filter = "[CATEGORIENUMERO] = " & Chr$(39) & .rsDEcmdTblLiensCategorie("CATEGORIENUMERO") & Chr$(39)
+            .rsDEcmdTblLiensSite.Filter = "[LieLieCatNum] = " & Chr$(39) & .rsDEcmdTblLiensCategorie("LieCatNum") & Chr$(39)
                     
             Select Case .rsDEcmdTblLiensSite.EOF
                 Case True
@@ -1431,26 +1439,34 @@ Private Sub ExporteFavorisFichier(ByRef strCategorieNom As String)
                         
                     Do Until .rsDEcmdTblLiensSite.EOF = True
                     
-                        strLiensSite = .rsDEcmdTblLiensSite("LIENSSITE")
+                        strLieSite = .rsDEcmdTblLiensSite("LieSite")
                                                                             
-                        strLiensUrl = .rsDEcmdTblLiensSite("LIENSURL")
+                        strLieUrl = .rsDEcmdTblLiensSite("LieUrl")
                         
-                        strLiensPhoto = .rsDEcmdTblLiensSite("LIENSPHOTO")
+                        If Not IsNull(.rsDEcmdTblLiensSite("LieImageMin")) Then
                         
-                        strLiensDescription = Replace(.rsDEcmdTblLiensSite("LIENSDESCRIPTION"), vbCrLf, "%10%13")
+                            strLieImageMin = .rsDEcmdTblLiensSite("LieImageMin")
+                            
+                        Else
+                        
+                            strLieImageMin = ""
+                            
+                        End If
+                        
+                        strLieDescription = Replace(.rsDEcmdTblLiensSite("LieDescription"), vbCrLf, "%10%13")
                         
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
-                        mdiWebBase.sbrDeltaWebBase.SimpleText = "LIENS:=" & Trim(strLiensUrl)
+                        mdiWebBase.sbrDeltaWebBase.SimpleText = "LIENS:=" & Trim(strLieUrl)
                         
-                        gfprFicProfiler.EcritureValeur guwbpParametre.strFavorisRepertoire & "\" & strCategorieNom & strLiensSite & ".URL", "InternetShortcut", "URL", strLiensUrl
+                        gfprFicProfiler.EcritureValeur guwbpParametre.strFavorisRepertoire & "\" & strLieCatNom & "\" & strLieSite & ".URL", "InternetShortcut", "URL", strLieUrl
                         
-                        gfprFicProfiler.EcritureValeur guwbpParametre.strFavorisRepertoire & "\" & strCategorieNom & strLiensSite & ".URL", "DELTA", "PHOTO", strLiensPhoto
+                        gfprFicProfiler.EcritureValeur guwbpParametre.strFavorisRepertoire & "\" & strLieCatNom & "\" & strLieSite & ".URL", "DELTA", "PHOTO", strLieImageMin
                                                         
-                        gfprFicProfiler.EcritureValeur guwbpParametre.strFavorisRepertoire & "\" & strCategorieNom & strLiensSite & ".URL", "DELTA", "DESCRIPTION", strLiensDescription
+                        gfprFicProfiler.EcritureValeur guwbpParametre.strFavorisRepertoire & "\" & strLieCatNom & "\" & strLieSite & ".URL", "DELTA", "DESCRIPTION", strLieDescription
                                                         
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
 'FIXIT: Remplacer la fonction 'Trim' par la fonction 'Trim$'                               FixIT90210ae-R9757-R1B8ZE
-                        mdiWebBase.sbrDeltaWebBase.SimpleText = "AJOUTE:=FICHIER:-SITE:" & Trim(strLiensSite) & "-URL:" & Trim(strLiensUrl)
+                        mdiWebBase.sbrDeltaWebBase.SimpleText = "AJOUTE:=FICHIER:-SITE:" & Trim(strLieSite) & "-URL:" & Trim(strLieUrl)
                         
                         .rsDEcmdTblLiensSite.MoveNext
                     Loop
@@ -1464,7 +1480,7 @@ ExporteFavorisFichier_Exit:
     ' Fin
 ExporteFavorisFichier_Erreur:
     ' Je l'ecrit dans le journal
-    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "ExporteFavorisFichier", strCategorieNom, Err
+    gfloLogWebBase.AjouteErreur App, FEUILLEFORM, LOGFEUILLENOM, INSTRUCTIONPROCEDURE, "ExporteFavorisFichier", strLieCatNom, Err
     ' Je Continue
     Resume ExporteFavorisFichier_Exit
     ' Fin
