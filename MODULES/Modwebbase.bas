@@ -1372,7 +1372,7 @@ Private Sub ExporteFavorisRepertoire()
                         
                     Loop
                                                                                                                                                              
-                    gfprFicProfiler.EcritureValeur guwbpParametre.strFavorisRepertoire & "\" & strLieCatNom & "Desktop.ini", "DELTA", "DESCRIPTION", strLieCatContenue
+                    gfprFicProfiler.EcritureValeur guwbpParametre.strFavorisRepertoire & "\" & strLieCatNom & "\" & "Desktop.ini", "DELTA", "DESCRIPTION", strLieCatContenue
                                                                                                                      
                     ExporteFavorisFichier strLieCatNom
                     
